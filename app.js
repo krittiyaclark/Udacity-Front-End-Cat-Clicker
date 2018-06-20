@@ -9,7 +9,7 @@ for (let i = 0; i < images.length; i++) {
 	let num = images[i];
 	// addEventListener to image
 	num.addEventListener('click', function(){
-			// Click count
+			// Click counter
 			count ++;
         	clickCount.innerHTML = `CLICK ME: ${count}`;
     });
