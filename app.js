@@ -1,38 +1,27 @@
 let clickCount = document.getElementById('click-count');
 let data = {
-	cat-1: {
-				name: 'cat-1',
-				photo: 'image/cat-1.jpg',
-				count: 0
-			},
-	cat-2: {
-				name: 'cat-2',
-				photo: 'image/cat-2.jpg',
-				count: 0
-			}
+	cats: {
+			names: ['cat-1', 'cat-2'],
+			photos: ['image/cat-1.jpg', 'image/cat-2.jpg'],
+			count: [0, 0]
+		  }
 	};
-	
 
-// console.log(imageArray);
-// let images = [...imageArray];
 let imageUI = '';
 
-
-const createImageItem = () => {
+const createImageItem = (index) => {
 	// Loop through all images
-	for (let i = 0; i < imageArray.length; i++) {
-		// console.log(imageArray);
-		// let createImage = document.getElementsByClassName('list');
-		let img = document.createElement("img");
- 
-		img.src = imageArray;
-		let src = document.getElementsByClassName('list');
-		 
-		src.appendChild(img);
-		// createImage.appendChild(createLI);
-		// let num = image[i];
-	};
+	let UL = document.getElementById('list');
+	let LI = document.createElement('li');
+	let IMG = document.createElement('img');
+	IMG.src = data.cats.photos[index];
+	LI.appendChild(document.createTextNode(data.cats.names[index]));
+	LI.appendChild(IMG);
+	UL.appendChild(LI);
 };
+
+createImageItem(0);
+createImageItem(1);
 
 const imageEventListener = () => {
 	// addEventListener to image
@@ -46,6 +35,4 @@ const clickCounter = () => {
 	count ++;
 
 }
-
-createImageItem();
 	    
