@@ -26,28 +26,26 @@
 		init: function() {
 			// set our current cat to the first one in the list
 			model.currentImage = model.cats[0];
-
+		},
 		// tell our views to initialize
 
 		// getCurrentImage
 		getCurrentImage: function() {
 			return model.currentImage;
-		}
+		},
 		// getImage
 		getImage: function() {
 			return model.cats;
-		}
+		},
 		// setCurrentImage
 		setCurrentImage: function(cat) {
 			model.currentImage = cat;
-		}
+		},
 		// incrementCounter
 		incrementCounter: function() {
 			model.currentImage.count++;
-			
-		}
-		}
 
+		}
 	};
 
 	/* ======= View ======= */
@@ -55,16 +53,25 @@
 	let imageView = {
 
 		init: function() {
-		// store pointers to our DOM elements for easy access later
+			// store pointers to our DOM elements for easy access later
 			let DOMstrings = {
 				containerElem: '#cat',
 				nameElem: '#cat-name',
-				ImageElem: '#cat-img',
+				imageElem: '#cat-img',
 				countElem: '#cat-count'
-			}
-		// on click, increment the current cat's counter
+			},
 
-		// render this view (update the DOM elements with the right values)
+			this.catElem = document.getElementById(DOMstrings.containerElem);
+	        this.catNameElem = document.getElementById(DOMstrings.nameElem);
+	        this.catImageElem = document.getElementById(DOMstrings.imageElem);
+	        this.countElem = document.getElementById(DOMstrings.countElem);
+
+			// on click, increment the current cat's counter
+			this.catImageElem.addEventListener('click', function() {
+				octopus.incrementCounter();
+			});
+			
+			// render this view (update the DOM elements with the right values)
 
 		}
 
