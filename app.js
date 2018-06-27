@@ -3,6 +3,7 @@
 	/* ======= Model ======= */
 
 	let model = {
+		currentImage: null,
 		cats: [
 				{
 					name: 'cat-1',
@@ -22,15 +23,84 @@
 
 	let octopus = {
 
+		init: function() {
+			// set our current cat to the first one in the list
+			model.currentImage = model.cats[0];
+
+		// tell our views to initialize
+
+		// getCurrentImage
+		getCurrentImage: function() {
+			return model.currentImage;
+		}
+		// getImage
+		getImage: function() {
+			return model.cats;
+		}
+		// setCurrentImage
+		setCurrentImage: function(cat) {
+			model.currentImage = cat;
+		}
+		// incrementCounter
+		incrementCounter: function() {
+			model.currentImage.count++;
+			
+		}
+		}
+
 	};
 
 	/* ======= View ======= */
 
-	let view = {
+	let imageView = {
 
+		init: function() {
+		// store pointers to our DOM elements for easy access later
+			let DOMstrings = {
+				containerElem: '#cat',
+				nameElem: '#cat-name',
+				ImageElem: '#cat-img',
+				countElem: '#cat-count'
+			}
+		// on click, increment the current cat's counter
+
+		// render this view (update the DOM elements with the right values)
+
+		}
+
+
+		render: function() {
+        // update the DOM elements with values from the current cat
+
+    	}
 	};
 
+	let imageList = {
+
+		// store the DOM element for easy access later
+
+		// render this view (update the DOM elements with the right values)
+
+		// get the cats we'll be rendering from the octopus
+
+		// empty the cat list
+
+		 // loop over the cats
+
+		 // this is the cat we're currently looping over
+
+		 // make a new cat list item and set its text
+
+		 // on click, setCurrentCat and render the catView
+         // (this uses our closure-in-a-loop trick to connect the value
+         //  of the cat variable to the click event function)
+
+         // finally, add the element to the list
+	}
+
 }());
+
+// make it go!
 
  
 
