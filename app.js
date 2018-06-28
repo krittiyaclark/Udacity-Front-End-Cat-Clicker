@@ -58,42 +58,33 @@
 
 		init: function() {
 			// store pointers to our DOM elements for easy access later
-			let DOMstrings = {
-				containerElem: '#cat',
-				nameElem: '#cat-name',
-				imageElem: '#cat-img',
-				countElem: '#cat-count',
-				imageListElem: '#cat-list'
-			};
+	        this.catElem = document.getElementById('cat');
+	        this.catNameElem = document.getElementById('cat-name');
+	        this.catImageElem = document.getElementById('cat-img');
+	        this.countElem = document.getElementById('cat-count');
 
-			this.catElem = document.getElementById(DOMstrings.containerElem);
-	        this.catNameElem = document.getElementById(DOMstrings.nameElem);
-	        this.catImageElem = document.getElementById(DOMstrings.imageElem);
-	        this.countElem = document.getElementById(DOMstrings.countElem);
-console.log(this.catImageElem)
-			// on click, increment the current cat's counter
-			this.catImageElem.addEventListener('click', function() {
-				octopus.incrementCounter();
-			});
+	        // on click, increment the current cat's counter
+	        this.catImageElem.addEventListener('click', function(){
+	            octopus.incrementCounter();
+	        });
 
-			// render this view (update the DOM elements with the right values)
-			this.render();
-		},
+	        // render this view (update the DOM elements with the right values)
+	        this.render();
+	    },
 
-
-		render: function() {
-        	// update the DOM elements with values from the current cat
-        	let currentImage = octopus.getCurrentImage();
-        	this.DOMstrings.countElem.textContent = currentImage.count;
-        	this.catNameElem.textContent = currentImage.name;
-        	this.catImageElem.src = currentImage.photo;
-    	}
+	    render: function() {
+	        // update the DOM elements with values from the current cat
+	        var currentImage = octopus.getCurrentImage();
+	        this.countElem.textContent = currentImage.count;
+	        this.catNameElem.textContent = currentImage.name;
+	        this.catImageElem.src = currentImage.photo;
+	    }
 	};
 
 	let imageListView = {
 		init: function() {
 		        // store the DOM element for easy access later
-		        this.catListElem = document.getElementById(imageView.init.DOMstrings.imageListElem);
+		        this.catListElem = document.getElementById('cat-list');
 
 		        // render this view (update the DOM elements with the right values)
 		        this.render();
